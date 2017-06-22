@@ -5,23 +5,40 @@
     <title>demo</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        img.media-object {
+            width: 128px;
+            height: 128px;
+        }
+
+        #search {
+            margin: 30px 50px;
+        }
+
+        .bs-example {
+            margin: 25px;
+            position: relative;
+            padding: 15px 15px;
+            background-color: #fff;
+            border-color: #ddd;
+            border-style: solid;
+            border-width: 1px;
+            border-radius: 4px 4px 0 0;
+            box-shadow: none;
+        }
+    </style>
 </head>
 
 <body>
-    <form class="form-inline">
-        <div class="form-group">
-            <label for="keyword">Keyword: </label>
-            <input type="text" class="form-control" id="keyword" placeholder="Please input a keyword">
+    <div class="bs-example">
+        <div class="input-group" id="search">
+            <span class="input-group-addon" id="basic-addon1">Github User Search</span>
+            <input type="text" id="keyword" class="form-control" placeholder="Please input keyword" aria-describedby="basic-addon1">
         </div>
-    </form>
 
-    <ul class="list-group">
-        <li class="list-group-item">Cras justo odio</li>
-        <li class="list-group-item">Dapibus ac facilisis in</li>
-        <li class="list-group-item">Morbi leo risus</li>
-        <li class="list-group-item">Porta ac consectetur ac</li>
-        <li class="list-group-item">Vestibulum at eros</li>
-    </ul>
+        <ul class="media-list">
+        </ul>
+    </div>
 </body>
 
 </html>
