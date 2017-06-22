@@ -7,21 +7,27 @@ import {
 } from './data.service'
 
 import {
-    renderUserList
+    renderUserList,
+    showLoading,
+    clear
 } from './render.service'
 
 const $input = $('#keyword')[0] as any;
 
-const repoes$ = Rx.Observable.fromEvent($input, 'keydown')
+const users$ = Rx.Observable.fromEvent($input, 'keydown')
     .debounceTime(400)
     .map(() => $input.value.trim())
     .filter(text => !!text)
     .distinctUntilChanged()
+    .do(showLoading)
     .switchMap(getUsers)
     .pluck('items')
-    .do(i=>console.log(i));
+    .do(i => console.log(i));
 
-repoes$.subscribe(renderUserList);
+users$.subscribe({
+    next: renderUserList,
+    error: clear
+});
 
 
 
